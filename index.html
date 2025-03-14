@@ -30,152 +30,156 @@
   </script>
 
 </head>
-<body>
-    <div class="base-component h-screen w-full flex flex-row m-5 font-redhat_text">
+<body class="m-10 bg-[#FBF8F6]">
+    <div class="base-component h-screen w-full flex flex-row m-10 font-redhat_text bg-[#FBF8F6]">
         <div class="product-list-component basis-2/3 m-5">
             <div class="mb-5 text-2xl font-bold">Desserts</div>
 
-            <div class="products grid grid-cols-3 gap-x-4">
-                <div class="item-1 bg-black-100 border-solid">
+            <div id="products" class="products grid grid-cols-3 gap-x-4">
+                <div class="item bg-black-100 border-solid">
                     <div class="product-image relative">
                         <img class="w-full object-cover" src="./product-list-with-cart-main/assets/images/image-waffle-desktop.jpg" alt="">
-                        <div class="add-to-cart text-sm border-[1px] border-black bottom-[-8%] bg-white rounded-3xl p-1 w-[20vh] left-1/2 -translate-x-1/2 absolute flex space-x-2">
-                            <img src="./product-list-with-cart-main/assets/images/icon-add-to-cart.svg" alt="" srcset="" class="m-1">
-                            <div class="m-1">Add To Cart</div>
-                        </div>
+                        <button id="add-to-cart-btn" class="add-to-carttext-sm border-[1px] border-black bottom-[-8%] bg-white rounded-3xl p-1 w-[20vh] left-1/2 -translate-x-1/2 absolute flex space-x-2">
+                            <img id="product-image" src="./product-list-with-cart-main/assets/images/icon-add-to-cart.svg" alt="" srcset="" class="m-1">
+                            <div id="add-to-cart-msg" class="m-1">Add To Cart</div>
+                        </button>
 
                     </div>
                     <div class="item-description mt-8">
-                         <div class="font-redhattextnormal text-xs" style="font-weight: 500;">Waffle</div>
-                        <div class="font-redhattextnormal font-bold text-sm">Waffle with Berries</div>
-                        <div class="font-redhattextnormal font-semibold text-red-600">$6.50</div>
+                         <div id="product-category" class="font-redhattextnormal text-xs" style="font-weight: 500;">Waffle</div>
+                        <div id="product-name" class="font-redhattextnormal font-bold text-sm">Waffle with Berries</div>
+                        <div id="product-price" class="font-redhattextnormal font-semibold text-red-600">$6.50</div>
                     </div>
                 </div>
-                <div class="item-2 bg-black-100 border-solid">
+                <div class="item bg-black-100 border-solid">
                     <div class="product-image relative">
                         <img class="w-full object-cover" src="./product-list-with-cart-main/assets/images/image-creme-brulee-desktop.jpg" alt="">
-                        <div class="add-to-cart text-sm border-[1px] border-black bottom-[-8%] bg-white rounded-3xl p-1 w-[20vh] left-1/2 -translate-x-1/2 absolute flex space-x-2">
-                            <img src="./product-list-with-cart-main/assets/images/icon-add-to-cart.svg" alt="" srcset="" class="m-1">
-                            <div class="m-1">Add To Cart</div>
-                        </div>
+                        <button id="add-to-cart-btn" class="add-to-carttext-sm border-[1px] border-black bottom-[-8%] bg-white rounded-3xl p-1 w-[20vh] left-1/2 -translate-x-1/2 absolute flex space-x-2">
+                            <img id="product-image" src="./product-list-with-cart-main/assets/images/icon-add-to-cart.svg" alt="" srcset="" class="m-1">
+                            <div id="add-to-cart-msg" class="m-1">Add To Cart</div>
+                        </button>
 
                     </div>
                     <div class="item-description mt-8">
-                         <div class="font-redhattextnormal text-xs" style="font-weight: 500;">Vanilla Bean Crème Brûlée</div>
-                        <div class="font-redhattextnormal font-bold text-sm">Crème Brûlée</div>
-                        <div class="font-redhattextnormal font-semibold text-red-600">$7.00</div>
+                         <div id="product-category" class="font-redhattextnormal text-xs" style="font-weight: 500;">Vanilla Bean Crème Brûlée</div>
+                        <div id="product-name" class="font-redhattextnormal font-bold text-sm">Crème Brûlée</div>
+                        <div id="product-price" class="font-redhattextnormal font-semibold text-red-600">$7.00</div>
                     </div>
                 </div>
-                <div class="item-3 bg-black-100 border-solid">
+                <div class="item bg-black-100 border-solid">
                     <div class="product-image relative">
                         <img class="w-full object-cover" src="./product-list-with-cart-main/assets/images/image-macaron-desktop.jpg" alt="">
-                        <div class="add-to-cart text-sm border-[1px] border-black bottom-[-8%] bg-white rounded-3xl p-1 w-[20vh] left-1/2 -translate-x-1/2 absolute flex space-x-2">
-                            <img src="./product-list-with-cart-main/assets/images/icon-add-to-cart.svg" alt="" srcset="" class="m-1">
-                            <div class="m-1">Add To Cart</div>
-                        </div>
+                        <button id="add-to-cart-btn" class="add-to-carttext-sm border-[1px] border-black bottom-[-8%] bg-white rounded-3xl p-1 w-[20vh] left-1/2 -translate-x-1/2 absolute flex space-x-2">
+                            <img id="product-image" src="./product-list-with-cart-main/assets/images/icon-add-to-cart.svg" alt="" srcset="" class="m-1">
+                            <div id="add-to-cart-msg" class="m-1">Add To Cart</div>
+                        </button>
 
                     </div>
                     <div class="item-description mt-8">
-                         <div class="font-redhattextnormal text-xs" style="font-weight: 500;">Macaron Mix of Five</div>
-                        <div class="font-redhattextnormal font-bold text-sm">Macaron</div>
-                        <div class="font-redhattextnormal font-semibold text-red-600">$8.00</div>
+                         <div id="product-category" class="font-redhattextnormal text-xs" style="font-weight: 500;">Macaron Mix of Five</div>
+                        <div id="product-name" class="font-redhattextnormal font-bold text-sm">Macaron</div>
+                        <div id="product-price" class="font-redhattextnormal font-semibold text-red-600">$8.00</div>
                     </div>
                 </div>
-                <div class="item-4 mt-[100px] bg-black-100 border-solid">
+                <div class="item mt-[100px] bg-black-100 border-solid">
                     <div class="product-image relative">
                         <img class="w-full object-cover" src="./product-list-with-cart-main/assets/images/image-tiramisu-desktop.jpg" alt="">
-                        <div class="add-to-cart text-sm border-[1px] border-black bottom-[-8%] bg-white rounded-3xl p-1 w-[20vh] left-1/2 -translate-x-1/2 absolute flex space-x-2">
-                            <img src="./product-list-with-cart-main/assets/images/icon-add-to-cart.svg" alt="" srcset="" class="m-1">
-                            <div class="m-1">Add To Cart</div>
-                        </div>
+                        <button id="add-to-cart-btn" class="add-to-carttext-sm border-[1px] border-black bottom-[-8%] bg-white rounded-3xl p-1 w-[20vh] left-1/2 -translate-x-1/2 absolute flex space-x-2">
+                            <img id="product-image" src="./product-list-with-cart-main/assets/images/icon-add-to-cart.svg" alt="" srcset="" class="m-1">
+                            <div id="add-to-cart-msg" class="m-1">Add To Cart</div>
+                        </button>
 
                     </div>
                     <div class="item-description mt-8">
-                         <div class="font-redhattextnormal text-xs" style="font-weight: 500;">Classic Tiramisu</div>
-                        <div class="font-redhattextnormal font-bold text-sm">Tiramisu</div>
-                        <div class="font-redhattextnormal font-semibold text-red-600">$5.50</div>
+                         <div id="product-category" class="font-redhattextnormal text-xs" style="font-weight: 500;">Classic Tiramisu</div>
+                        <div id="product-name" class="font-redhattextnormal font-bold text-sm">Tiramisu</div>
+                        <div id="product-price" class="font-redhattextnormal font-semibold text-red-600">$5.50</div>
                     </div>
                 </div>
-                <div class="item-5 mt-[100px] bg-black-100 border-solid">
+                <div class="item mt-[100px] bg-black-100 border-solid">
                     <div class="product-image relative">
                         <img class="w-full object-cover" src="./product-list-with-cart-main/assets/images/image-baklava-desktop.jpg" alt="">
-                        <div class="add-to-cart text-sm border-[1px] border-black bottom-[-8%] bg-white rounded-3xl p-1 w-[20vh] left-1/2 -translate-x-1/2 absolute flex space-x-2">
-                            <img src="./product-list-with-cart-main/assets/images/icon-add-to-cart.svg" alt="" srcset="" class="m-1">
-                            <div class="m-1">Add To Cart</div>
-                        </div>
+                        <button id="add-to-cart-btn" class="add-to-carttext-sm border-[1px] border-black bottom-[-8%] bg-white rounded-3xl p-1 w-[20vh] left-1/2 -translate-x-1/2 absolute flex space-x-2">
+                            <img id="product-image" src="./product-list-with-cart-main/assets/images/icon-add-to-cart.svg" alt="" srcset="" class="m-1">
+                            <div id="add-to-cart-msg" class="m-1">Add To Cart</div>
+                        </button>
 
                     </div>
                     <div class="item-description mt-8">
-                         <div class="font-redhattextnormal text-xs" style="font-weight: 500;">Pistachio Baklava</div>
-                        <div class="font-redhattextnormal font-bold text-sm">Baklava</div>
-                        <div class="font-redhattextnormal font-semibold text-red-600">$4.00</div>
+                         <div id="product-category" class="font-redhattextnormal text-xs" style="font-weight: 500;">Pistachio Baklava</div>
+                        <div id="product-name" class="font-redhattextnormal font-bold text-sm">Baklava</div>
+                        <div id="product-price" class="font-redhattextnormal font-semibold text-red-600">$4.00</div>
                     </div>
                 </div>
-                <div class="item-6 mt-[100px] bg-black-100 border-solid">
+                <div class="item mt-[100px] bg-black-100 border-solid">
                     <div class="product-image relative">
                         <img class="w-full object-cover" src="./product-list-with-cart-main/assets/images/image-meringue-desktop.jpg" alt="">
-                        <div class="add-to-cart text-sm border-[1px] border-black bottom-[-8%] bg-white rounded-3xl p-1 w-[20vh] left-1/2 -translate-x-1/2 absolute flex space-x-2">
-                            <img src="./product-list-with-cart-main/assets/images/icon-add-to-cart.svg" alt="" srcset="" class="m-1">
-                            <div class="m-1">Add To Cart</div>
-                        </div>
+                        <button id="add-to-cart-btn" class="add-to-carttext-sm border-[1px] border-black bottom-[-8%] bg-white rounded-3xl p-1 w-[20vh] left-1/2 -translate-x-1/2 absolute flex space-x-2">
+                            <img id="product-image" src="./product-list-with-cart-main/assets/images/icon-add-to-cart.svg" alt="" srcset="" class="m-1">
+                            <div id="add-to-cart-msg" class="m-1">Add To Cart</div>
+                        </button>
 
                     </div>
                     <div class="item-description mt-8">
-                         <div class="font-redhattextnormal text-xs" style="font-weight: 500;">Lemon Meringue Pie</div>
-                        <div class="font-redhattextnormal font-bold text-sm">Pie</div>
-                        <div class="font-redhattextnormal font-semibold text-red-600">$5.00</div>
+                         <div id="product-category" class="font-redhattextnormal text-xs" style="font-weight: 500;">Lemon Meringue Pie</div>
+                        <div id="product-name" class="font-redhattextnormal font-bold text-sm">Pie</div>
+                        <div id="product-price" class="font-redhattextnormal font-semibold text-red-600">$5.00</div>
                     </div>
                 </div>
-                <div class="item-7 mt-[100px] bg-black-100 border-solid">
+                <div class="item mt-[100px] bg-black-100 border-solid">
                     <div class="product-image relative">
                         <img class="w-full object-cover" src="./product-list-with-cart-main/assets/images/image-cake-desktop.jpg" alt="">
-                        <div class="add-to-cart text-sm border-[1px] border-black bottom-[-8%] bg-white rounded-3xl p-1 w-[20vh] left-1/2 -translate-x-1/2 absolute flex space-x-2">
-                            <img src="./product-list-with-cart-main/assets/images/icon-add-to-cart.svg" alt="" srcset="" class="m-1">
-                            <div class="m-1">Add To Cart</div>
-                        </div>
+                        <button id="add-to-cart-btn" class="add-to-carttext-sm border-[1px] border-black bottom-[-8%] bg-white rounded-3xl p-1 w-[20vh] left-1/2 -translate-x-1/2 absolute flex space-x-2">
+                            <img id="product-image" src="./product-list-with-cart-main/assets/images/icon-add-to-cart.svg" alt="" srcset="" class="m-1">
+                            <div id="add-to-cart-msg" class="m-1">Add To Cart</div>
+                        </button>
 
                     </div>
                     <div class="item-description mt-8">
-                         <div class="font-redhattextnormal text-xs" style="font-weight: 500;">Red Velvet Cake</div>
-                        <div class="font-redhattextnormal font-bold text-sm">Cake</div>
-                        <div class="font-redhattextnormal font-semibold text-red-600">$4.50</div>
+                         <div id="product-category" class="font-redhattextnormal text-xs" style="font-weight: 500;">Red Velvet Cake</div>
+                        <div id="product-name" class="font-redhattextnormal font-bold text-sm">Cake</div>
+                        <div id="product-price" class="font-redhattextnormal font-semibold text-red-600">$4.50</div>
                     </div>
                 </div>
-                <div class="item-8 mt-[100px] bg-black-100 border-solid">
+                <div class="item mt-[100px] bg-black-100 border-solid">
                     <div class="product-image relative">
                         <img class="w-full object-cover" src="./product-list-with-cart-main/assets/images/image-brownie-desktop.jpg" alt="">
-                        <div class="add-to-cart text-sm border-[1px] border-black bottom-[-8%] bg-white rounded-3xl p-1 w-[20vh] left-1/2 -translate-x-1/2 absolute flex space-x-2">
-                            <img src="./product-list-with-cart-main/assets/images/icon-add-to-cart.svg" alt="" srcset="" class="m-1">
-                            <div class="m-1">Add To Cart</div>
-                        </div>
+                        <button id="add-to-cart-btn" class="add-to-carttext-sm border-[1px] border-black bottom-[-8%] bg-white rounded-3xl p-1 w-[20vh] left-1/2 -translate-x-1/2 absolute flex space-x-2">
+                            <img id="product-image" src="./product-list-with-cart-main/assets/images/icon-add-to-cart.svg" alt="" srcset="" class="m-1">
+                            <div id="add-to-cart-msg" class="m-1">Add To Cart</div>
+                        </button>
 
                     </div>
                     <div class="item-description mt-8">
-                         <div class="font-redhattextnormal text-xs" style="font-weight: 500;">Salted Caramel Brownie</div>
-                        <div class="font-redhattextnormal font-bold text-sm">Brownie</div>
-                        <div class="font-redhattextnormal font-semibold text-red-600">$4.50</div>
+                         <div id="product-category" class="font-redhattextnormal text-xs" style="font-weight: 500;">Salted Caramel Brownie</div>
+                        <div id="product-name" class="font-redhattextnormal font-bold text-sm">Brownie</div>
+                        <div id="product-price" class="font-redhattextnormal font-semibold text-red-600">$4.50</div>
                     </div>
                 </div>
-                <div class="item-9 mt-[100px] bg-black-100 border-solid">
+                <div class="item mt-[100px] bg-black-100 border-solid">
                     <div class="product-image relative">
                         <img class="w-full object-cover" src="./product-list-with-cart-main/assets/images/image-panna-cotta-desktop.jpg" alt="">
-                        <div class="add-to-cart text-sm border-[1px] border-black bottom-[-8%] bg-white rounded-3xl p-1 w-[20vh] left-1/2 -translate-x-1/2 absolute flex space-x-2">
-                            <img src="./product-list-with-cart-main/assets/images/icon-add-to-cart.svg" alt="" srcset="" class="m-1">
-                            <div class="m-1">Add To Cart</div>
-                        </div>
+                        <button id="add-to-cart-btn" class="add-to-carttext-sm border-[1px] border-black bottom-[-8%] bg-white rounded-3xl p-1 w-[20vh] left-1/2 -translate-x-1/2 absolute flex space-x-2">
+                            <img id="product-image" src="./product-list-with-cart-main/assets/images/icon-add-to-cart.svg" alt="" srcset="" class="m-1">
+                            <div id="add-to-cart-msg" class="m-1">Add To Cart</div>
+                        </button>
 
                     </div>
                     <div class="item-description mt-8">
-                         <div class="font-redhattextnormal text-xs" style="font-weight: 500;">Vanilla Panna Cotta</div>
-                        <div class="font-redhattextnormal font-bold text-sm">Panna Cotta</div>
-                        <div class="font-redhattextnormal font-semibold text-red-600">$6.50</div>
+                         <div id="product-category" class="font-redhattextnormal text-xs" style="font-weight: 500;">Vanilla Panna Cotta</div>
+                        <div id="product-name" class="font-redhattextnormal font-bold text-sm">Panna Cotta</div>
+                        <div id="product-price" class="font-redhattextnormal font-semibold text-red-600">$6.50</div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="add-to-cart-component border-2 basis-1/3 border-solid bg-blue-200 m-5">
-
+        <div class="add-to-cart-component basis-1/3 m-5 bg-white flex ">
+                <p>Your Cart</p>
+                <p id='cart-count' class="ml-1"></p>
         </div>
     </div>
+
+    <script src="./script.js"></script>
 </body>
+
 </html>
