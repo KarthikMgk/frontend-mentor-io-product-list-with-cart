@@ -1,54 +1,69 @@
 const cart = JSON.parse(localStorage.getItem('cart')) || {};
-const curCartCount = localStorage.getItem("cartCount");
 const addToCartBtns = document.querySelectorAll('#add-to-cart-btn')
 const addToCartMsg = document.querySelector("#add-to-cart-msg");
 const products = document.querySelectorAll("#products .item");
-const cartCountTag = document.querySelector('#cart-count')
 
 
-document.addEventListener("DOMContentLoaded", () => {
-    const cartCount = localStorage.getItem("cartCount") || 0;
-    updateCartCount(cartCount);
-});
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || {};
+  let cartCount;
+  if (cart) {
+    cartCount = Object.values(cart).reduce((sum, item) => sum + item.quantity, 0)
+  } else {
+    cartCount = 0
+  }
+  document.querySelector("#total-cart-count").innerHTML = `(${cartCount})`;
 
-
-
-function updateCartCount(currentQuantity) {
-    
-    localStorage.setItem("cartCount", Number(currentQuantity));
-    let cartCount = localStorage.getItem('cartCount')
-    cartCountTag.innerHTML = `(${cartCount})`;
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+  updateCartCount();
+});
+
 function decrementCartQuantity(e) {
-    console.log('decrementing quantity');
+  console.log('decrementing quantity');
+  // debugger
     const itemCount = e.target.nextElementSibling;
   
     console.log(e.target.closest('#item-quantity'));
   
     // debugger
     const item = e.target.closest('.item');
+    const itemAddToCartBtn = item.querySelector('.product-image #add-to-cart-btn');
+  
     const itemName = item.querySelector('.item-description #product-name').textContent.trim()
     let cart = JSON.parse(localStorage.getItem('cart')) || {};
     
-    let cartQuantity = localStorage.getItem('cartCount', 0)
+    // debugger
     if (!cart[itemName]) {
         return
     }
-    console.log(cart[itemName]);
+    
     cart[itemName].quantity = Math.max(0, Number(cart[itemName].quantity) - 1)
     localStorage.setItem("cart", JSON.stringify(cart))
-    console.log(cart[itemName]);
-   
-    localStorage.setItem("cartCount", Math.max(0, Number(cartQuantity)-1))
-    itemCount.innerHTML = `${Number(cart[itemName].quantity)}`;
-
+    updateCartCount();
+    // debugger;
+    if (cart[itemName].quantity <= 0) {
+      delete cart[itemName];
+      localStorage.setItem("cart", JSON.stringify(cart));
+      itemAddToCartBtn.innerHTML = `
+        <img id="product-image" src="./product-list-with-cart-main/assets/images/icon-add-to-cart.svg" alt="" srcset="" class="m-1">
+        <div id="add-to-cart-msg" class="m-1 bg-white">Add To Cart</div>
+      `;
+      itemAddToCartBtn.style.backgroundColor = 'white'
+      itemAddToCartBtn.removeEventListener("click", addToCartHandler);
+      itemAddToCartBtn.addEventListener("click", addToCartHandler);
+      updateCartCount();
+    }
+    
+  itemCount.innerHTML = cart[itemName].quantity
+  return;
     
     // localStorage.setItem(itemName, Number(curCount)-1)
 }
 
 function incrementCartQuantity(e) {
-  
+  // debugger;
     console.log("incrementing quantity");
     const itemCount = e.target.previousElementSibling
     // debugger
@@ -58,7 +73,6 @@ function incrementCartQuantity(e) {
       .textContent.trim();
     let cart = JSON.parse(localStorage.getItem("cart")) || {};
 
-    let cartQuantity = localStorage.getItem("cartCount", 0);
     if (!cart[itemName]) {
       return;
     }
@@ -67,16 +81,16 @@ function incrementCartQuantity(e) {
     localStorage.setItem("cart", JSON.stringify(cart));
     console.log(cart[itemName]);
 
-    localStorage.setItem("cartCount", Math.max(0, Number(cartQuantity) + 1));
     itemCount.innerHTML = `${Number(cart[itemName].quantity)}`;
+    updateCartCount();
     
 }
 
-
-addToCartBtns.forEach((button) => {
-  
-  function addToCartHandler(e) {
-    const productCard = e.target.closest(".item");
+function addToCartHandler(e) {
+  // debugger;
+    const button = e.currentTarget;
+  const productCard = e.target.closest(".item");
+  const cart = JSON.parse(localStorage.getItem("cart")) || {};
     const productCategory = productCard
       .querySelector("#product-category")
       .textContent.trim();
@@ -103,41 +117,39 @@ addToCartBtns.forEach((button) => {
       "#B84623";
     addToCartBtn.querySelector("#add-to-cart-btn").innerHTML = `
       <img
-          id="add-cart-decrement-btn"
+          class="decrement-btn m-1 p-2"
           src="./product-list-with-cart-main/assets/images/icon-decrement-quantity.svg"
           alt=""
-          class="m-1 p-2"
       />
       <span id="item-quantity" class="item-quantity m-1 text-white">${cart[productName].quantity}</span>
       <img
-          id="add-cart-increment-btn"
+          class="increment-btn m-1 p-2"
           src="./product-list-with-cart-main/assets/images/icon-increment-quantity.svg"
           alt=""
-          class="m-1 p-2"
       />
     `;
-
     // Remove the "Add to Cart" event listener to prevent re-adding handlers
     button.removeEventListener("click", addToCartHandler);
 
     // Add event listeners for increment and decrement buttons
-    document
-      .getElementById("add-cart-decrement-btn")
+    addToCartBtn
+      .querySelector(".decrement-btn")
       .addEventListener("click", function (e) {
         decrementCartQuantity(e);
       });
 
-    document
-      .getElementById("add-cart-increment-btn")
+    addToCartBtn
+      .querySelector(".increment-btn")
       .addEventListener("click", function (e) {
         incrementCartQuantity(e);
       });
 
     localStorage.setItem("cart", JSON.stringify(cart));
-    currentQuantity = Number(localStorage.getItem("cartCount"));
-    updateCartCount(currentQuantity + 1);
+    updateCartCount();
   }
 
+
+addToCartBtns.forEach((button) => {
   // Attach the event listener to each button
   button.addEventListener("click", addToCartHandler);
 });
