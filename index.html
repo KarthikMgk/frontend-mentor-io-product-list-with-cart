@@ -31,14 +31,14 @@
 
 </head>
 <body class="m-10 bg-[#FBF8F6]">
-    <div class="base-component h-screen w-full flex flex-row m-10 font-redhat_text bg-[#FBF8F6]">
+    <div class="base-component h-screen w-full flex flex-row m-5 p-2 font-redhat_text bg-[#FBF8F6]">
         <div class="product-list-component basis-2/3 m-5">
             <div class="mb-5 text-2xl font-bold">Desserts</div>
 
             <div id="products" class="products grid grid-cols-3 gap-x-4">
                 <div class="item bg-black-100 border-solid">
                     <div class="product-image relative">
-                        <img class="w-full object-cover" src="./product-list-with-cart-main/assets/images/image-waffle-desktop.jpg" alt="">
+                        <img id="product-thumbnail" class="w-full object-cover" src="./product-list-with-cart-main/assets/images/image-waffle-desktop.jpg" alt="">
                         <button id="add-to-cart-btn" class="add-to-carttext-sm border-[1px] border-black bottom-[-8%] bg-white rounded-3xl p-1 w-auto left-1/2 -translate-x-1/2 absolute flex items-center space-x-2">
                             <img id="product-image" src="./product-list-with-cart-main/assets/images/icon-add-to-cart.svg" alt="" srcset="" class="m-1">
                             <div id="add-to-cart-msg" class="m-1">Add To Cart</div>
@@ -53,7 +53,7 @@
                 </div>
                 <div class="item bg-black-100 border-solid">
                     <div class="product-image relative">
-                        <img class="w-full object-cover" src="./product-list-with-cart-main/assets/images/image-creme-brulee-desktop.jpg" alt="">
+                        <img id="product-thumbnail" class="w-full object-cover" src="./product-list-with-cart-main/assets/images/image-creme-brulee-desktop.jpg" alt="">
                         <button id="add-to-cart-btn" class="add-to-carttext-sm border-[1px] border-black bottom-[-8%] bg-white rounded-3xl p-1 w-auto left-1/2 -translate-x-1/2 absolute flex items-center space-x-2">
                             <img id="product-image" src="./product-list-with-cart-main/assets/images/icon-add-to-cart.svg" alt="" srcset="" class="m-1">
                             <div id="add-to-cart-msg" class="m-1">Add To Cart</div>
@@ -68,7 +68,7 @@
                 </div>
                 <div class="item bg-black-100 border-solid">
                     <div class="product-image relative">
-                        <img class="w-full object-cover" src="./product-list-with-cart-main/assets/images/image-macaron-desktop.jpg" alt="">
+                        <img id="product-thumbnail" class="w-full object-cover" src="./product-list-with-cart-main/assets/images/image-macaron-desktop.jpg" alt="">
                         <button id="add-to-cart-btn" class="add-to-carttext-sm border-[1px] border-black bottom-[-8%] bg-white rounded-3xl p-1 w-auto left-1/2 -translate-x-1/2 absolute flex items-center space-x-2">
                             <img id="product-image" src="./product-list-with-cart-main/assets/images/icon-add-to-cart.svg" alt="" srcset="" class="m-1">
                             <div id="add-to-cart-msg" class="m-1">Add To Cart</div>
@@ -81,9 +81,9 @@
                         <div id="product-price" class="font-redhattextnormal font-semibold text-red-600">$8.00</div>
                     </div>
                 </div>
-                <div class="item mt-[100px] bg-black-100 border-solid">
+                <div class="item mt-10 bg-black-100 border-solid">
                     <div class="product-image relative">
-                        <img class="w-full object-cover" src="./product-list-with-cart-main/assets/images/image-tiramisu-desktop.jpg" alt="">
+                        <img id="product-thumbnail" class="w-full object-cover" src="./product-list-with-cart-main/assets/images/image-tiramisu-desktop.jpg" alt="">
                         <button id="add-to-cart-btn" class="add-to-carttext-sm border-[1px] border-black bottom-[-8%] bg-white rounded-3xl p-1 w-auto left-1/2 -translate-x-1/2 absolute flex items-center space-x-2">
                             <img id="product-image" src="./product-list-with-cart-main/assets/images/icon-add-to-cart.svg" alt="" srcset="" class="m-1">
                             <div id="add-to-cart-msg" class="m-1">Add To Cart</div>
@@ -96,9 +96,9 @@
                         <div id="product-price" class="font-redhattextnormal font-semibold text-red-600">$5.50</div>
                     </div>
                 </div>
-                <div class="item mt-[100px] bg-black-100 border-solid">
+                <div class="item mt-10 bg-black-100 border-solid">
                     <div class="product-image relative">
-                        <img class="w-full object-cover" src="./product-list-with-cart-main/assets/images/image-baklava-desktop.jpg" alt="">
+                        <img id="product-thumbnail" class="w-full object-cover" src="./product-list-with-cart-main/assets/images/image-baklava-desktop.jpg" alt="">
                         <button id="add-to-cart-btn" class="add-to-carttext-sm border-[1px] border-black bottom-[-8%] bg-white rounded-3xl p-1 w-auto left-1/2 -translate-x-1/2 absolute flex items-center space-x-2">
                             <img id="product-image" src="./product-list-with-cart-main/assets/images/icon-add-to-cart.svg" alt="" srcset="" class="m-1">
                             <div id="add-to-cart-msg" class="m-1">Add To Cart</div>
@@ -111,9 +111,9 @@
                         <div id="product-price" class="font-redhattextnormal font-semibold text-red-600">$4.00</div>
                     </div>
                 </div>
-                <div class="item mt-[100px] bg-black-100 border-solid">
+                <div class="item mt-10 bg-black-100 border-solid">
                     <div class="product-image relative">
-                        <img class="w-full object-cover" src="./product-list-with-cart-main/assets/images/image-meringue-desktop.jpg" alt="">
+                        <img id="product-thumbnail" class="w-full object-cover" src="./product-list-with-cart-main/assets/images/image-meringue-desktop.jpg" alt="">
                         <button id="add-to-cart-btn" class="add-to-carttext-sm border-[1px] border-black bottom-[-8%] bg-white rounded-3xl p-1 w-auto left-1/2 -translate-x-1/2 absolute flex items-center space-x-2">
                             <img id="product-image" src="./product-list-with-cart-main/assets/images/icon-add-to-cart.svg" alt="" srcset="" class="m-1">
                             <div id="add-to-cart-msg" class="m-1">Add To Cart</div>
@@ -126,9 +126,9 @@
                         <div id="product-price" class="font-redhattextnormal font-semibold text-red-600">$5.00</div>
                     </div>
                 </div>
-                <div class="item mt-[100px] bg-black-100 border-solid">
+                <div class="item mt-10 bg-black-100 border-solid">
                     <div class="product-image relative">
-                        <img class="w-full object-cover" src="./product-list-with-cart-main/assets/images/image-cake-desktop.jpg" alt="">
+                        <img id="product-thumbnail" class="w-full object-cover" src="./product-list-with-cart-main/assets/images/image-cake-desktop.jpg" alt="">
                         <button id="add-to-cart-btn" class="add-to-carttext-sm border-[1px] border-black bottom-[-8%] bg-white rounded-3xl p-1 w-auto left-1/2 -translate-x-1/2 absolute flex items-center space-x-2">
                             <img id="product-image" src="./product-list-with-cart-main/assets/images/icon-add-to-cart.svg" alt="" srcset="" class="m-1">
                             <div id="add-to-cart-msg" class="m-1">Add To Cart</div>
@@ -141,9 +141,9 @@
                         <div id="product-price" class="font-redhattextnormal font-semibold text-red-600">$4.50</div>
                     </div>
                 </div>
-                <div class="item mt-[100px] bg-black-100 border-solid">
+                <div class="item mt-10 bg-black-100 border-solid">
                     <div class="product-image relative">
-                        <img class="w-full object-cover" src="./product-list-with-cart-main/assets/images/image-brownie-desktop.jpg" alt="">
+                        <img id="product-thumbnail" class="w-full object-cover" src="./product-list-with-cart-main/assets/images/image-brownie-desktop.jpg" alt="">
                         <button id="add-to-cart-btn" class="add-to-carttext-sm border-[1px] border-black bottom-[-8%] bg-white rounded-3xl p-1 w-auto left-1/2 -translate-x-1/2 absolute flex items-center space-x-2">
                             <img id="product-image" src="./product-list-with-cart-main/assets/images/icon-add-to-cart.svg" alt="" srcset="" class="m-1">
                             <div id="add-to-cart-msg" class="m-1">Add To Cart</div>
@@ -156,9 +156,9 @@
                         <div id="product-price" class="font-redhattextnormal font-semibold text-red-600">$4.50</div>
                     </div>
                 </div>
-                <div class="item mt-[100px] bg-black-100 border-solid">
+                <div class="item mt-10 bg-black-100 border-solid">
                     <div class="product-image relative">
-                        <img class="w-full object-cover" src="./product-list-with-cart-main/assets/images/image-panna-cotta-desktop.jpg" alt="">
+                        <img id="product-thumbnail" class="w-full object-cover" src="./product-list-with-cart-main/assets/images/image-panna-cotta-desktop.jpg" alt="">
                         <button id="add-to-cart-btn" class="add-to-carttext-sm border-[1px] border-black bottom-[-8%] bg-white rounded-3xl p-1 w-auto left-1/2 -translate-x-1/2 absolute flex items-center space-x-2">
                             <img id="product-image" src="./product-list-with-cart-main/assets/images/icon-add-to-cart.svg" alt="" srcset="" class="m-1">
                             <div id="add-to-cart-msg" class="m-1">Add To Cart</div>
@@ -173,12 +173,29 @@
                 </div>
             </div>
         </div>
-        <div class="add-to-cart-component basis-1/3 m-5 bg-white flex ">
-                <p>Your Cart</p>
+        <div class="add-to-cart-component basis-1/3 m-5 p-5 bg-white min-h-fit">
+            <div class="m-5 text-lg font-semibold text-red-600 add-to-cart-content flex">
+                <div>Your Cart</div>
                 <p id='total-cart-count' class="ml-1"></p>
+            </div>
+            <div class="add-to-cart-items">
+                <img class="mt-10 ml-20" src="./product-list-with-cart-main/assets/images/illustration-empty-cart.svg" alt="" srcset="">
+                <div class="add-to-cart-base-text ml-10 text-[#80625B]">Your selected items will appear here</div>
+            </div>
         </div>
     </div>
-
+    <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-[300px]">
+        <h2 class="text-xl font-semibold">Order Confirmation</h2>
+        <p class="mt-2 text-gray-600">Are you sure you want to place the order?</p>
+        
+        <!-- Buttons -->
+        <div class="flex justify-end mt-4">
+        <button id="closeModal" class="px-4 py-2 bg-gray-400 text-white rounded-lg mr-2">Cancel</button>
+        <button class="px-4 py-2 bg-red-600 text-white rounded-lg">Confirm</button>
+        </div>
+    </div>
+    </div>
     <script src="./script.js"></script>
 </body>
 
