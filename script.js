@@ -3,6 +3,7 @@ const addToCartBtns = document.querySelectorAll('#add-to-cart-btn')
 const addToCartMsg = document.querySelector("#add-to-cart-msg");
 const products = document.querySelectorAll("#products .item");
 const modal = document.getElementById("modal");
+const confirmationItems = document.querySelector(".confirmation-page-items");
 
 function updateCartCount() {
   const cart = JSON.parse(localStorage.getItem('cart')) || {};
@@ -41,6 +42,8 @@ function decrementCartQuantity(e) {
     }
     
     cart[itemName].quantity = Math.max(0, Number(cart[itemName].quantity) - 1)
+    cart[itemName].totalPrice =
+        (Number(cart[itemName].quantity) * Number(cart[itemName].price)).toFixed(2);
     localStorage.setItem("cart", JSON.stringify(cart))
     updateCartCount();
     // debugger;
@@ -83,6 +86,8 @@ function incrementCartQuantity(e) {
     }
     console.log(cart[itemName]);
     cart[itemName].quantity = Math.max(0, Number(cart[itemName].quantity) + 1);
+    cart[itemName].totalPrice =
+      (Number(cart[itemName].quantity) * Number(cart[itemName].price)).toFixed(2);
     localStorage.setItem("cart", JSON.stringify(cart));
     console.log(cart[itemName]);
 
@@ -93,38 +98,43 @@ function incrementCartQuantity(e) {
 }
 
 function addToCartHandler(e) {
-  debugger;
-    e.stopPropagation();
-    const button = e.currentTarget;
-    const productCard = e.target.closest(".item");
-    const cart = JSON.parse(localStorage.getItem("cart")) || {};
-    const productCategory = productCard
-      .querySelector("#product-category")
-      .textContent.trim();
-    const productName = productCard
-      .querySelector("#product-name")
-      .textContent.trim();
-    const productPrice = productCard
-      .querySelector("#product-price")
-      .textContent.trim();
-    const productImage = productCard.querySelector('#product-thumbnail').src
-    const addToCartBtn = e.target.parentElement.parentElement;
+  // debugger;
+  e.stopPropagation();
+  const button = e.currentTarget;
+  const productCard = e.target.closest(".item");
+  const cart = JSON.parse(localStorage.getItem("cart")) || {};
+  const productCategory = productCard
+    .querySelector("#product-category")
+    .textContent.trim();
+  const productName = productCard
+    .querySelector("#product-name")
+    .textContent.trim();
+  const productPrice = productCard
+    .querySelector("#product-price")
+    .textContent.trim()
+    .replace(/[^0-9.]/g, "");
+  const productImage = productCard.querySelector("#product-thumbnail").src;
+  const addToCartBtn = e.target.parentElement.parentElement;
 
-    console.log(productName, " is the clicked product");
+  console.log(productName, " is the clicked product");
+  // debugger
+  if (cart[productName]) {
+    cart[productName].quantity += 1;
+    cart[productName].totalPrice =
+      Number(cart[productName].quantity) *
+      Number(cart[productName].price).toFixed(2);
+  } else {
+    cart[productName] = {
+      price: productPrice,
+      quantity: 1,
+      thumbnail: productImage.replace("desktop", "thumbnail"),
+      totalPrice: Number(productPrice).toFixed(2),
+    };
+  }
 
-    if (cart[productName]) {
-      cart[productName].quantity += 1;
-    } else {
-      cart[productName] = {
-        price: productPrice,
-        quantity: 1,
-        thumbnail: productImage.replace('desktop', 'thumbnail'),
-      };
-    }
-
-    addToCartBtn.querySelector("#add-to-cart-btn").style.backgroundColor =
-      "#B84623";
-    addToCartBtn.querySelector("#add-to-cart-btn").innerHTML = `
+  addToCartBtn.querySelector("#add-to-cart-btn").style.backgroundColor =
+    "#B84623";
+  addToCartBtn.querySelector("#add-to-cart-btn").innerHTML = `
       <img
           class="decrement-btn m-1 p-2"
           src="./product-list-with-cart-main/assets/images/icon-decrement-quantity.svg"
@@ -137,25 +147,25 @@ function addToCartHandler(e) {
           alt=""
       />
     `;
-    // Remove the "Add to Cart" event listener to prevent re-adding handlers
-    button.removeEventListener("click", addToCartHandler);
+  // Remove the "Add to Cart" event listener to prevent re-adding handlers
+  button.removeEventListener("click", addToCartHandler);
 
-    // Add event listeners for increment and decrement buttons
-    // addToCartBtn
-    //   .querySelector(".decrement-btn")
-    //   .addEventListener("click", function (e) {
-    //     decrementCartQuantity(e);
-    //   });
+  // Add event listeners for increment and decrement buttons
+  // addToCartBtn
+  //   .querySelector(".decrement-btn")
+  //   .addEventListener("click", function (e) {
+  //     decrementCartQuantity(e);
+  //   });
 
-    // addToCartBtn
-    //   .querySelector(".increment-btn")
-    //   .addEventListener("click", function (e) {
-    //     incrementCartQuantity(e);
-    //   });
+  // addToCartBtn
+  //   .querySelector(".increment-btn")
+  //   .addEventListener("click", function (e) {
+  //     incrementCartQuantity(e);
+  //   });
 
-    localStorage.setItem("cart", JSON.stringify(cart));
-    updateCartCount();
-    updateYourCart();
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCount();
+  updateYourCart();
 }
 
 function updateYourCart() {
@@ -222,6 +232,74 @@ function updateYourCart() {
   }
 }
 
+
+function updatedConfirmationModalItems() {
+  const cart = JSON.parse(localStorage.getItem('cart') || {})
+  let confirmationCartTotal = 0;
+  for (let productName in cart) {
+    const item = cart[productName]
+    const confirmationCartItem = document.createElement('div')
+    confirmationCartItem.classList.add('confirmation-item')
+    confirmationCartTotal += Number(item.totalPrice);
+    confirmationCartItem.innerHTML = `
+      <div class="text-sm flex flex-row justify-between items-center">
+        <div class="item-details flex flex-row gap-x-5 p-3 basis-2/3">
+          <span>
+            <img class="h-[50px] w-[50px]" src="${item.thumbnail}">
+          </span>
+          <div class="product-details flex flex-col justify-center gap-y-2">
+            <p>${productName}</p>
+            <div class="flex flex-row gap-x-5">
+              <span class="text-red-600">${item.quantity}x</span>
+              <span class="font-extralight">@${item.price}</span>
+            </div>
+          </div>
+          
+        </div>
+        <div class="total-price p-3">
+          ${item.totalPrice}
+        </div>
+      </div>
+    `;
+    confirmationItems.appendChild(confirmationCartItem)
+  }
+  const cartTotal = document.createElement('div')
+  cartTotal.classList.add(
+    "flex",
+    "flex-row",
+    "justify-between",
+    "p-3"
+  )
+  cartTotal.innerHTML = `
+  <p class="text-sm">Order Total</p>
+  <p class="text-2xl font-bold">${confirmationCartTotal.toFixed(2)}</p>
+  `;
+  confirmationItems.appendChild(cartTotal)
+
+  newOrderBtn = document.createElement('div')
+  newOrderBtn.classList.add(
+    "flex",
+    "justify-center",
+    "mt-4",
+    "p-2"
+  )
+  newOrderBtn.innerHTML = `
+    <button id="closeModal" class="w-full p-2 bg-red-600 text-white rounded-2xl">Start New Order</button>
+  `;
+  confirmationItems.appendChild(newOrderBtn)
+      
+        
+
+
+
+
+  
+}
+
+function clearModelItems() {
+  confirmationItems.innerHTML = ''
+}
+
 addToCartBtns.forEach((button) => {
   // Attach the event listener to each button
   // button.addEventListener("click", addToCartHandler);
@@ -262,12 +340,14 @@ document.addEventListener("click", function (e) {
   if (e.target && e.target.id === "openModal") {
     const modal = document.getElementById("modal");
     modal.classList.remove("hidden");
+    updatedConfirmationModalItems();
   }
 
   // Check if the clicked element is the "Close Modal" button
   if (e.target && e.target.id === "closeModal") {
     const modal = document.getElementById("modal");
     modal.classList.add("hidden");
+    clearModelItems();
   }
 });
 
